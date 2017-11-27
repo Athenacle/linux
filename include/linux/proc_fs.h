@@ -83,4 +83,8 @@ struct ns_common;
 int open_related_ns(struct ns_common *ns,
 		   struct ns_common *(*get_ns)(struct ns_common *ns));
 
+#ifdef CONFIG_WXC_LINUX_PROC_DIRECTORY
+struct proc_dir_entry *wxcl_get_proc_root(void);
+#endif
+
 #endif /* _LINUX_PROC_FS_H */

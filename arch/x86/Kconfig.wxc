@@ -5,6 +5,11 @@ menuconfig WXC_LINUX
     help
         WXC Person Changed Linux Kernel.
 
-
+if WXC_LINUX
+    config WXC_LINUX_PROC_DIRECTORY
+        bool "Enable /proc/wxc directory"
+        depends on PROC_FS
+        help
+            Create /proc/wxc directory for providing message.
 endif
 

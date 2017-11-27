@@ -150,6 +150,9 @@ void __init proc_root_init(void)
 	proc_tty_init();
 	proc_mkdir("bus", NULL);
 	proc_sys_init();
+#ifdef CONFIG_WXC_LINUX_PROC_DIRECTORY
+	proc_mkdir("wxc", NULL);
+#endif
 }
 
 static int proc_root_getattr(const struct path *path, struct kstat *stat,
