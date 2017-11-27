@@ -112,3 +112,6 @@ video-objs			+= acpi_video.o video_detect.o
 obj-y				+= dptf/
 
 obj-$(CONFIG_ARM64)		+= arm64/
+
+# WXCL
+obj-$(CONFIG_WXC_LINUX_BBSWITCH_SUPPORT) += bbswitch.o

@@ -20,5 +20,18 @@ if WXC_LINUX
         help
             Collect Keyboard Press/UnPress Statistic Data. And Store into
             /proc/wxc/keyboard_stat
-endif
 
+    comment "Features from third party"
+
+    config WXC_LINUX_BBSWITCH_SUPPORT
+        tristate "Enable BBSWITCH Support"
+        depends on PCI && ACPI && ACPI_PCI_SLOT && MODULES &&  m
+        select MODULE_UNLOAD
+        help
+            BBSWITCH is a kernel module which automatically detects the
+            required ACPI calls for Optimus laptops.
+            From: https://github.com/Bumblebee-Project/bbswitch/tree/develop
+            Commit: 9dd227019aac8f125e04befa2c0b1bf0624be482
+            Update: 17 July, 2017
+
+endif
