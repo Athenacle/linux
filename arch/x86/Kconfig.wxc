@@ -11,5 +11,14 @@ if WXC_LINUX
         depends on PROC_FS
         help
             Create /proc/wxc directory for providing message.
+
+    comment "Features"
+
+    config WXC_LINUX_KEYBOARD_STAT
+        tristate "Collect Keyboard Press/UnPress Statistic"
+        depends on WXC_LINUX_PROC_DIRECTORY && INPUT_KEYBOARD && m
+        help
+            Collect Keyboard Press/UnPress Statistic Data. And Store into
+            /proc/wxc/keyboard_stat
 endif
 
