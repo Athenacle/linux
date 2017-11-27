@@ -1,0 +1,10 @@
+
+menuconfig WXC_LINUX
+    bool "WXC Modified Linux Kernel"
+    depends on X86
+    help
+        WXC Person Changed Linux Kernel.
+
+
+endif
+
