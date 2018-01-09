@@ -190,8 +190,13 @@ ENTRY(entry_SYSCALL_compat)
 	/* Interrupts are off on entry. */
 	swapgs
 
-	/* Stash user ESP and switch to the kernel stack. */
+	/* Stash user ESP */
 	movl	%esp, %r8d
+
+	/* Use %rsp as scratch reg. User ESP is stashed in r8 */
+	SWITCH_TO_KERNEL_CR3 scratch_reg=%rsp
+
+	/* Switch to the kernel stack */
 	movq	PER_CPU_VAR(cpu_current_top_of_stack), %rsp
 
 	/* Construct struct pt_regs on stack */
